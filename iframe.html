@@ -1,0 +1,23 @@
+<#assign youtubeLink = settings.name.get("customcontent.20_text")/>
+ 
+
+<div>
+    <div id="youtube-video"></div>
+</div>
+<script>
+    function getYouTubeEmbedUrl(url) {
+        var params = new URLSearchParams(new URL(url).search);
+        var videoID = params.get('v');
+        var embedURL = 'https://www.youtube.com/embed/' + videoID;
+        return embedURL;
+    }
+
+    function embedYouTubeVideo(url) {
+        var embedURL = getYouTubeEmbedUrl(url);
+        var iframeHTML = '<iframe width="360" height="215" src="' + embedURL + '" frameborder="0" allowfullscreen></iframe>';
+        document.getElementById('youtube-video').innerHTML = iframeHTML;
+    }
+
+    var youtubeURL = '${youtubeLink}';
+    embedYouTubeVideo(youtubeURL);
+</script>
