@@ -8,7 +8,7 @@
     function getYouTubeEmbedUrl(url) {
         var params = new URLSearchParams(new URL(url).search);
         var videoID = params.get('v');
-        var embedURL = 'https://www.youtube.com/embed/' + videoID;
+        var embedURL = 'https://www.youtube.com/embed/' + videoID + '?rel=0';
         return embedURL;
     }
 
